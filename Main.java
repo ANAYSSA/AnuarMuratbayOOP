@@ -14,9 +14,9 @@ public class Main {
         film2.printInfo();
 
         System.out.println("\n=== Reservations ===");
-        cinema.reserve(v1, film1); // успешно
-        cinema.reserve(v2, film2); // возможно не хватит денег
-        cinema.reserve(v1, film2); // может закончиться место
+        cinema.reserve(v1, film1);
+        cinema.reserve(v2, film2); 
+        cinema.reserve(v1, film2); 
 
         System.out.println("\n=== Compare viewers ===");
         if (v1.getBalance() > v2.getBalance())
