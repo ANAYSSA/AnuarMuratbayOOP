@@ -9,16 +9,16 @@ public class Main {
 
         Cinema cinema = new Cinema("Mega Cinema", 2);
 
-        System.out.println("=== Films ===");
+        System.out.println("--- Films ---");
         film1.printInfo();
         film2.printInfo();
 
-        System.out.println("\n=== Reservations ===");
+        System.out.println("\n--- Reservations ---");
         cinema.reserve(v1, film1);
         cinema.reserve(v2, film2); 
         cinema.reserve(v1, film2); 
 
-        System.out.println("\n=== Compare viewers ===");
+        System.out.println("\n--- Compare viewers ---");
         if (v1.getBalance() > v2.getBalance())
             System.out.println(v1.getName() + " has more money.");
         else
