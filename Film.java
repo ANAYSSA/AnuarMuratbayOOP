@@ -1,18 +1,16 @@
-public class Film {
-    private String title;
+public class Film extends Media {
     private double price;
-
     public Film(String title, double price) {
-        this.title = title;
+        super(title);
         this.price = price;
     }
-
-    public String getTitle() { return title; }
     public double getPrice() { return price; }
-
-    public void setPrice(double price) { this.price = price; }
-
-    public void printInfo() {
-        System.out.println("Film: " + title + ", Price: " + price);
+    @Override
+    public void showDetail() {
+        System.out.println("Кино: " + title + " стоит " + price);
+    }
+    @Override
+    public String toString() {
+        return "Фильм: '" + title + "', Цена: " + price;
     }
 }
