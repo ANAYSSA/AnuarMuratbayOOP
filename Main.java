@@ -1,27 +1,26 @@
 public class Main {
     public static void main(String[] args) {
+        Cinema cinema = new Cinema("Zodiac", 5);
+        cinema.addMovie(new Film("Human x", 8.0));
+        cinema.addMovie(new Film("Spider man", 15.0));
+        cinema.addMovie(new Film("Minions", 5.0));
 
-        Film film1 = new Film("Avatar 3", 10.0);
-        Film film2 = new Film("Batman", 8.0);
+        System.out.println("Все фильмы");
+        cinema.showAllFilms();
+        System.out.println("\nСортировка");
+        cinema.sortByPrice();
+        cinema.showAllFilms();
 
-        Viewer v1 = new Viewer("Aнуар", 15.0);
-        Viewer v2 = new Viewer("Тимур", 5.0);
+        System.out.println("\nФильтр (до 10)");
+        cinema.showCheapFilms(10.0);
 
-        Cinema cinema = new Cinema("Mega Cinema", 2);
+        System.out.println("\nПоиск");
+        cinema.findFilm("Spider man");
 
-        System.out.println("--- Films ---");
-        film1.printInfo();
-        film2.printInfo();
-
-        System.out.println("\n--- Reservations ---");
-        cinema.reserve(v1, film1);
-        cinema.reserve(v2, film2); 
-        cinema.reserve(v1, film2); 
-
-        System.out.println("\n--- Compare viewers ---");
-        if (v1.getBalance() > v2.getBalance())
-            System.out.println(v1.getName() + " has more money.");
-        else
-            System.out.println(v2.getName() + " has more money.");
+        System.out.println("\nБронирование");
+        Viewer v1 = new Viewer("Ануар", 200.0);
+        Viewer v2 = new Viewer("Тимур",145.0);
+        Film target = new Film("Spider man", 15.0);
+        cinema.reserve(v1, target);
     }
 }
