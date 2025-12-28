@@ -1,26 +1,55 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Cinema cinema = new Cinema("Zodiac", 5);
-        cinema.addMovie(new Film("Human x", 8.0));
-        cinema.addMovie(new Film("Spider man", 15.0));
-        cinema.addMovie(new Film("Minions", 5.0));
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Все фильмы");
-        cinema.showAllFilms();
-        System.out.println("\nСортировка");
-        cinema.sortByPrice();
-        cinema.showAllFilms();
+        // Создаем кинотеатр
+        Cinema cinema = new Cinema("Anuar Cinema", 50);
 
-        System.out.println("\nФильтр (до 10)");
-        cinema.showCheapFilms(10.0);
+        // Добавляем начальные фильмы
+        cinema.addMovie(new Film("Spider-Man: No Way Home", 2500, Genre.ACTION));
+        cinema.addMovie(new Film("Minions", 1500, Genre.ANIMATION));
+        cinema.addMovie(new Film("Inception", 2000, Genre.THRILLER));
+        cinema.addMovie(new Film("The Notebook", 1800, Genre.ROMANCE));
+        cinema.addMovie(new Film("IT", 2200, Genre.HORROR));
 
-        System.out.println("\nПоиск");
-        cinema.findFilm("Spider man");
+        // Создаем интерфейсы
+        Admin admin = new Admin(cinema, scanner);
+        ViewerInterface viewerInterface = new ViewerInterface(cinema, scanner);
 
-        System.out.println("\nБронирование");
-        Viewer v1 = new Viewer("Ануар", 200.0);
-        Viewer v2 = new Viewer("Тимур",145.0);
-        Film target = new Film("Spider man", 15.0);
-        cinema.reserve(v1, target);
+        System.out.println("════════════════════════════════════════");
+        System.out.println("   Welcome to " + cinema.getName() + "! ");
+        System.out.println("════════════════════════════════════════");
+
+        // Главное меню
+        while (true) {
+            System.out.println("\n========== MAIN MENU ==========");
+            System.out.println("1. Log in as Administrator");
+            System.out.println("2. Log in as Viewer");
+            System.out.println("3. Exit");
+            System.out.print("Select Role: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // очистка буфера
+
+            switch (choice) {
+                case 1:
+                    System.out.println("\n--- Log in as Admin ---");
+                    admin.showMenu();
+                    break;
+                case 2:
+                    System.out.println("\n--- Log in as Viewer ---");
+                    viewerInterface.showMenu();
+                    break;
+                case 3:
+                    System.out.println("\nThanks!");
+                    System.out.println("see you soon!");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Wrong choice!");
+            }
+        }
     }
 }

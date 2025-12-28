@@ -16,6 +16,6 @@ public class Viewer {
     }
     @Override
     public String toString() {
-        return "Зритель: " + name + ", Баланс: " + balance;
+        return "Viewer: " + name + ", Balance: " + balance;
     }
 }
