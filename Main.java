@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Создаем кинотеатр
         Cinema cinema = new Cinema("Anuar Cinema", 50);
 
         // Добавляем начальные фильмы
@@ -14,7 +13,7 @@ public class Main {
         cinema.addMovie(new Film("The Notebook", 1800, Genre.ROMANCE));
         cinema.addMovie(new Film("IT", 2200, Genre.HORROR));
 
-        // Создаем интерфейсы
+  
         Admin admin = new Admin(cinema, scanner);
         ViewerInterface viewerInterface = new ViewerInterface(cinema, scanner);
 
@@ -22,7 +21,6 @@ public class Main {
         System.out.println("   Welcome to " + cinema.getName() + "! ");
         System.out.println("════════════════════════════════════════");
 
-        // Главное меню
         while (true) {
             System.out.println("\n========== MAIN MENU ==========");
             System.out.println("1. Log in as Administrator");
