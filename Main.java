@@ -6,7 +6,6 @@ public class Main {
 
         Cinema cinema = new Cinema("Anuar Cinema", 50);
 
-        // Добавляем начальные фильмы
         cinema.addMovie(new Film("Spider-Man: No Way Home", 2500, Genre.ACTION));
         cinema.addMovie(new Film("Minions", 1500, Genre.ANIMATION));
         cinema.addMovie(new Film("Inception", 2000, Genre.THRILLER));
