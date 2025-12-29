@@ -29,7 +29,7 @@ public class Main {
             System.out.print("Select Role: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // очистка буфера
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
