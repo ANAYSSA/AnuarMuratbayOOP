@@ -10,7 +10,7 @@ public enum Genre {
 
     private String rusName;
 
-    Genre(String rusName) {
+    public Genre(String rusName) {
         this.rusName = rusName;
     }
 
@@ -22,4 +22,5 @@ public enum Genre {
     public String toString() {
         return rusName;
     }
+
 }
